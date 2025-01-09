@@ -8,8 +8,7 @@
     {
       "name": "InceptionV3",
       "model_id_name": "inceptionv3",
-      "path": "models/inceptionv3/weights.pth",
-      "preprocessing": "models/inceptionv3/model.py"
+      "weight_path": "models/inceptionv3/weights.pth",
+      "model_path": "models/inceptionv3/model.py"
     }
-  ]
-  
+]

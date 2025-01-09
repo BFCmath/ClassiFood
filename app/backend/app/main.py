@@ -3,9 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import json
 from utils.load_model import ModelLoader
+from utils.load_classes import load_classes
 
 app = FastAPI()
-
+CLASS_NAME_PATH = "not found yet"
 # Allow CORS for local development
 app.add_middleware(
     CORSMiddleware,
@@ -19,12 +20,19 @@ app.add_middleware(
 with open('app/metadata.json') as f:
     model_metadata = json.load(f)
 
+# Load classes once
+classes = load_classes(CLASS_NAME_PATH)
+
 # Initialize Model Loader
-model_loader = ModelLoader(model_metadata)
+model_loader = ModelLoader(model_metadata,len(classes))
 
 @app.get("/models")
 def get_models():
-    return {"models": [{"id": m["id"], "name": m["name"]} for m in model_metadata]}
+    return {"models": [{"id": m["model_id_name"], "name": m["name"]} for m in model_metadata]}
+
+@app.get("/classes")
+def get_classes():
+    return {"classes": classes}
 
 @app.post("/predict")
 async def predict(image: UploadFile = File(...), model_id_name: str = Form(...)):

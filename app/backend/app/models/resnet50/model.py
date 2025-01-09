@@ -5,8 +5,7 @@ from albumentations.pytorch import ToTensorV2
 from PIL import Image
 import io
 import numpy as np
-import torch 
-from ...utils.load_classes import load_classes
+import torch
 
 class ResNet50(BaseModel):
     def __init__(self):
@@ -14,12 +13,11 @@ class ResNet50(BaseModel):
             model_id_name="resnet50",
             name="resnet50",
             weight_path="app/models/resnet50/weight.pth",
-            num_classes=1000  # Example number of classes
+            num_classes=101 
         )
         self.resized_height = 224
         self.resized_width = 224
         self.transforms = self.get_transforms()
-        self.classes = load_classes("app/models/resnet50/classes.txt")
 
     def load_model(self):
         model = timm.create_model(self.model_id_name, num_classes=self.num_classes, pretrained=True)

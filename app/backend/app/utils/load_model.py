@@ -1,8 +1,9 @@
 from importlib import import_module
 
 class ModelLoader:
-    def __init__(self, metadata):
+    def __init__(self, metadata,num_classes):
         self.metadata = metadata
+        self.num_classes = num_classes
         self.models = {}
 
     def get_model(self, model_id_name):
@@ -16,6 +17,6 @@ class ModelLoader:
         module_path = model_info["model_path"].replace("/", ".").replace(".py", "")
         model_module = import_module(module_path)
         model_class = getattr(model_module, model_info["name"])
-        model_instance = model_class()
+        model_instance = model_class(num_classes=self.num_classes)
         self.models[model_id_name] = model_instance
         return model_instance

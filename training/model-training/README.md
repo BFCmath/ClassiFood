@@ -15,7 +15,7 @@ Also we can use pretrained weight to speed up the training process. (Transfer le
 
 You can check the end-to-end training pipeline in the [training script](training-script.ipynb) file.
 
-## Ensemble learning
+### Ensemble learning
 For each model, I will train it many times, each time with different hyperparameters. This serves two purposes:
 
 + Hyperparameter tuning: Find the best hyperparameters for each model.
@@ -25,11 +25,18 @@ Also, I used OOF (Out-of-Fold) technique to prevent overfitting and get a better
 
 Moreover, I can ensemble models with different architectures (ResNet, EfficientNet) to get better performance. (TODO)
 
-## Data augmentation
+### Data augmentation
 
-Just simple image augmentation techniques.
+Apply from simple to advanced data augmentation techniques to improve the model's performance.
+
+Check the data augmentation techniques for each model in the [config](config) folder.
+
 TODO: Mixup, CutMix, etc.
 
-## TTA (Test Time Augmentation)
+### TTA (Test Time Augmentation)
 
 TODO
+
+## Configuration
+
+You can check the configuration for each model in the [config](config) folder.

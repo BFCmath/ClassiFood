@@ -13,6 +13,8 @@ Also we can use pretrained weight to speed up the training process. (Transfer le
 
 ## Training techniques
 
+You can check the end-to-end training pipeline in the [training script](training-script.ipynb) file.
+
 ## Ensemble learning
 For each model, I will train it many times, each time with different hyperparameters. This serves two purposes:
 

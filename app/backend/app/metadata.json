@@ -1,0 +1,14 @@
+[
+    {
+      "name": "ResNet50",
+      "model_id_name": "resnet50",
+      "weight_path": "models/resnet50/weight.pth",
+      "model_path": "models/resnet50/model.py"
+    },
+    {
+      "name": "InceptionV3",
+      "model_id_name": "inceptionv3",
+      "weight_path": "models/inceptionv3/weights.pth",
+      "model_path": "models/inceptionv3/model.py"
+    }
+]

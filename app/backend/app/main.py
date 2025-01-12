@@ -21,10 +21,10 @@ with open('app/metadata.json') as f:
     model_metadata = json.load(f)
 
 # Load classes once
-classes = load_classes(CLASS_NAME_PATH)
+classes = load_classes()
 
 # Initialize Model Loader
-model_loader = ModelLoader(model_metadata,len(classes))
+model_loader = ModelLoader(model_metadata, len(classes))
 
 @app.get("/models")
 def get_models():

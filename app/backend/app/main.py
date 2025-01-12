@@ -2,8 +2,8 @@ from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import json
-from utils.load_model import ModelLoader
-from utils.load_classes import load_classes
+from app.utils.load_model import ModelLoader
+from app.utils.load_classes import load_classes
 
 app = FastAPI()
 CLASS_NAME_PATH = "not found yet"
@@ -25,6 +25,10 @@ classes = load_classes()
 
 # Initialize Model Loader
 model_loader = ModelLoader(model_metadata, len(classes))
+
+@app.get("/")
+def get_test():
+    return {"message": "Hello World"}
 
 @app.get("/models")
 def get_models():

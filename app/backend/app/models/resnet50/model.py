@@ -8,12 +8,12 @@ import numpy as np
 import torch
 
 class ResNet50(BaseModel):
-    def __init__(self):
+    def __init__(self, model_id_name, name, weight_path, num_classes):
         super().__init__(
-            model_id_name="resnet50",
-            name="resnet50",
-            weight_path="app/models/resnet50/weight.pth",
-            num_classes=101 
+            model_id_name=model_id_name,
+            name=name,
+            weight_path=weight_path,
+            num_classes=num_classes
         )
         self.resized_height = 224
         self.resized_width = 224

@@ -8,12 +8,13 @@ import numpy as np
 import torch
 
 class EfficientNet(BaseModel):
-    def __init__(self):
+    def __init__(self, model_id_name, name, weight_path, num_classes):
+        self.num_classes = num_classes  # Set num_classes before calling super().__init__()
         super().__init__(
-            model_id_name="efficientnet_b4",
-            name="efficientnet",
-            weight_path="app/models/efficientnet/weight.pth",
-            num_classes=101 
+            model_id_name=model_id_name,
+            name=name,
+            weight_path=weight_path,
+            num_classes=self.num_classes 
         )
         self.resized_height = 380
         self.resized_width = 380

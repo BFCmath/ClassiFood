@@ -36,3 +36,4 @@ P/S: Thanks Saber (aka Mai Duc Minh Huy) for the idea of confidence weighted pre
 | Version     | Val          | Test Fold 1 | Test Fold 2 | Test Fold 3 | Test Fold 4 | Test Fold 5 | Test CFW   |
 |-------------|--------------|-------------|-------------|-------------|-------------|-------------|------------|
 | EffNet v1   | 0.81436303   | 0.85390099  | 0.8536237   | 0.855960396 | 0.85334653  | 0.876554455  | 0.88823762 |
+| EffNet v2   | 0.818693069   | 0.8560396  | 0.8629306   | 0.860910891 | 0.85405940  | 0.854019801  | 0.88451485 |

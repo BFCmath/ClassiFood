@@ -21,6 +21,8 @@ class ResNet50(BaseModel):
 
     def load_model(self):
         model = timm.create_model(self.model_id_name, num_classes=self.num_classes, pretrained=True)
+        # load weight 
+        model.load_state_dict(torch.load(self.weight_path, map_location=torch.device('cpu')))
         return model.to('cpu') # Only use CPU
     
     def get_transforms(self):

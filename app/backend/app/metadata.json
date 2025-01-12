@@ -6,9 +6,9 @@
       "model_path": "models/resnet50/model.py"
     },
     {
-      "name": "InceptionV3",
-      "model_id_name": "inceptionv3",
-      "weight_path": "models/inceptionv3/weights.pth",
-      "model_path": "models/inceptionv3/model.py"
+      "name": "EfficientNet",
+      "model_id_name": "efficientnet_b4",
+      "weight_path": "models/efficientnet/weights.pth",
+      "model_path": "models/efficientnet/model.py"
     }
 ]

@@ -8,3 +8,4 @@ numpy
 scikit-learn
 pandas
 albumentations
+python-multipart

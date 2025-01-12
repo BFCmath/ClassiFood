@@ -29,7 +29,7 @@ Apply from simple to advanced data augmentation techniques to improve the model'
 
 Check the data augmentation techniques for each model in the [config](config) folder.
 
-TODO: Mixup, CutMix, etc.
+For advanced data augmentation, check [Mixup and Cutmix implementation](Mixup&CutMix.ipynb)
 
 ## Configuration
 

@@ -54,8 +54,11 @@ async def predict(image: UploadFile = File(...), model_id_name: str = Form(...))
     # Perform prediction
     prediction, probabilities = model.predict(preprocessed_image)
 
+    # Convert numpy.float32 to native Python types
+    probabilities = probabilities.tolist()
+
     # Sort results
-    sorted_results = sorted(zip(model.classes, probabilities), key=lambda x: x[1], reverse=True)
+    sorted_results = sorted(zip(classes, probabilities), key=lambda x: x[1], reverse=True)
 
     return {"results": sorted_results}
 

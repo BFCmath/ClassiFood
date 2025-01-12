@@ -1,14 +1,16 @@
 [
     {
-      "name": "ResNet50",
-      "model_id_name": "resnet50",
-      "weight_path": "models/resnet50/weight.pth",
-      "model_path": "models/resnet50/model.py"
+        "name": "ResNet50",
+        "model_id_name": "resnet50",
+        "class_name": "ResNet50",
+        "weight_path": "app/models/resnet50/weight.pth",
+        "model_path": "app/models/resnet50/model.py"
     },
     {
-      "name": "EfficientNet",
-      "model_id_name": "efficientnet_b4",
-      "weight_path": "models/efficientnet/weights.pth",
-      "model_path": "models/efficientnet/model.py"
+        "name": "EfficientNet",
+        "model_id_name": "efficientnet_b4",
+        "class_name": "EfficientNet",
+        "weight_path": "app/models/efficientnet/weights.pth",
+        "model_path": "app/models/efficientnet/model.py"
     }
 ]

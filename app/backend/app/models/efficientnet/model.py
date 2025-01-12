@@ -9,12 +9,11 @@ import torch
 
 class EfficientNet(BaseModel):
     def __init__(self, model_id_name, name, weight_path, num_classes):
-        self.num_classes = num_classes  # Set num_classes before calling super().__init__()
         super().__init__(
             model_id_name=model_id_name,
             name=name,
             weight_path=weight_path,
-            num_classes=self.num_classes 
+            num_classes=num_classes 
         )
         self.resized_height = 380
         self.resized_width = 380
@@ -22,7 +21,8 @@ class EfficientNet(BaseModel):
 
     def load_model(self):
         model = timm.create_model(self.model_id_name, num_classes=self.num_classes, pretrained=True)
-        model.load_state_dict(torch.load(self.weight_path, map_location=torch.device('cpu')))
+        checkpoint = torch.load(self.weight_path, map_location=torch.device('cpu'), weights_only=False)
+        model.load_state_dict(checkpoint['model_state_dict'])
         return model.to('cpu') # Only use CPU
     
     def get_transforms(self):

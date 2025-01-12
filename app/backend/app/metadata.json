@@ -10,7 +10,7 @@
         "name": "EfficientNet",
         "model_id_name": "efficientnet_b4",
         "class_name": "EfficientNet",
-        "weight_path": "app/models/efficientnet/weights.pth",
+        "weight_path": "app/models/efficientnet/weight.pth",
         "model_path": "app/models/efficientnet/model.py"
     }
 ]

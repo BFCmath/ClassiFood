@@ -1,35 +1,35 @@
-# Model training
+# Model Training
 
-## Model selection
+## Model Selection
 
-For this project, I decided to use many models to compare their performance. The models I chose are:
+For this project, I decided to use multiple models to compare their performance. The models I chose are:
 
-+ ResNet
-+ EfficientNet
+- ResNet
+- EfficientNet
 
-I chose these models because they are widely used in the image classification task and have shown good performance in many benchmarks/competitions.
+I chose these models because they are widely used in image classification tasks and have shown good performance in many benchmarks and competitions.
 
-Also we can use pretrained weight to speed up the training process. (Transfer learning)
+Additionally, we can use pretrained weights to speed up the training process (Transfer Learning).
 
-## Training techniques
+## Training Techniques
 
 You can check the end-to-end training pipeline in the [training script](training-script.ipynb) file.
 
-### Ensemble learning
+### Ensemble Learning
 
-For each model architecture, I trained multiple versions of the model with different hyperparameters and data augmentation techniques. This helps hyperparameter tuning and data augmentation selection.
+For each model architecture, I trained multiple versions of the model with different hyperparameters and data augmentation techniques. This helps with hyperparameter tuning and data augmentation selection.
 
 For each version of a model, I used 5-fold cross-validation to evaluate the model's performance, and then I aggregated those 5 predictions to get the final performance.
 
-Finally, I used combine the predictions of many different models to improve the overall performance. (TODO)
+Finally, I combined the predictions of different models to improve the overall performance.
 
-### Data augmentation
+### Data Augmentation
 
-Apply from simple to advanced data augmentation techniques to improve the model's performance.
+I applied various data augmentation techniques, from simple to advanced, to improve the model's performance.
 
 Check the data augmentation techniques for each model in the [config](config) folder.
 
-For advanced data augmentation, check [Mixup and Cutmix implementation](Mixup&CutMix.ipynb)
+For advanced data augmentation, check the [Mixup and CutMix implementation](Mixup&CutMix.ipynb).
 
 ## Configuration
 

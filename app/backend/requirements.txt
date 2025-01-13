@@ -1,0 +1,10 @@
+timm
+torch
+torchvision
+fastapi
+uvicorn
+pillow
+numpy
+scikit-learn
+pandas
+albumentations

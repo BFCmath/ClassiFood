@@ -18,6 +18,6 @@ class BaseModel(ABC):
         pass
 
     @abstractmethod
-    def predict(self, preprocessed_image):
+    def predict(self, preprocessed_image, tta=False):
         """Perform inference on the preprocessed image and return predictions."""
         pass

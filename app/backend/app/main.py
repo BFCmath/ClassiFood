@@ -39,7 +39,7 @@ def get_classes():
     return {"classes": classes}
 
 @app.post("/predict")
-async def predict(image: UploadFile = File(...), model_id_name: str = Form(...)):
+async def predict(image: UploadFile = File(...), model_id_name: str = Form(...), tta: bool = Form(False)):
     # Load the selected model
     model = model_loader.get_model(model_id_name)
     if not model:
@@ -52,7 +52,7 @@ async def predict(image: UploadFile = File(...), model_id_name: str = Form(...))
     preprocessed_image = model.preprocess(image_bytes)
 
     # Perform prediction
-    prediction, probabilities = model.predict(preprocessed_image)
+    prediction, probabilities = model.predict(preprocessed_image, tta=tta)
 
     # Convert numpy.float32 to native Python types
     probabilities = probabilities.tolist()

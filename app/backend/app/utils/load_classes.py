@@ -1,5 +1,5 @@
 def load_classes():
-    return [
+    default_class = [
         'apple_pie', 'baby_back_ribs', 'baklava', 'beef_carpaccio',
         'beef_tartare', 'beet_salad', 'beignets', 'bibimbap',
         'bread_pudding', 'breakfast_burrito', 'bruschetta', 'caesar_salad',
@@ -26,3 +26,5 @@ def load_classes():
         'steak', 'strawberry_shortcake', 'sushi', 'tacos', 'takoyaki',
         'tiramisu', 'tuna_tartare', 'waffles'
     ]
+    # convert them to uppercase for the first letter each word and remove _
+    return [word.replace('_', ' ').title() for word in default_class]

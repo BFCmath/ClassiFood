@@ -28,8 +28,10 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 # Title
 st.title("Food Image Classification App")
+tta = st.checkbox("Slower but more accurate", value=False)
 
 # Backend API URL
 API_URL = "http://localhost:8000"
@@ -75,6 +77,7 @@ with right_column:
     # Center the Model Selection
     with model_column:
         selected_model = st.selectbox("Select Model", model_options)
+        # Add TTA checkbox right below the model selection
 
     # Center the Predict Button
     with button_column:
@@ -97,15 +100,18 @@ if predict_button:  # Check if the button is clicked
     if uploaded_file is not None:
         # Read image
         buffered = io.BytesIO()
+        if image.mode == 'RGBA':
+            image = image.convert('RGB')
         image.save(buffered, format="JPEG")
         img_bytes = buffered.getvalue()
 
-        # Prepare multipart/form/data
+        # Prepare multipart/form-data
         files = {
             "image": ("image.jpg", img_bytes, "image/jpeg"),
         }
         data = {
-            "model_id_name": model_ids[selected_model]
+            "model_id_name": model_ids[selected_model],
+            "tta": tta
         }
 
         # Send POST request to backend

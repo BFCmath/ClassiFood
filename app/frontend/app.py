@@ -6,11 +6,48 @@ import io
 # Set page configuration
 st.set_page_config(layout="wide")
 
+# --- Add this block for the floating GitHub icon ---
+st.markdown(
+    """
+    <style>
+    .floating-github-icon {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999999;
+    }
+    .floating-github-icon img {
+        background-color: #f0f0f0; 
+        border-radius: 8px;       /* Rounded corners, use 50% for a circular icon */
+        padding: 6px;             /* Space between icon and background edge */
+    }
+    </style>
+    <a href="https://github.com/BFCmath/ClassiFood" target="_blank" class="floating-github-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="50px"/>
+    </a>
+    """,
+    unsafe_allow_html=True
+)
+# Title
+st.title("Food Image Classification App")
+
 # Backend API URL
 API_URL = "http://localhost:8000"
 
-# Title
-st.title("Food Image Classification App")
+# Inject custom CSS for the button
+st.markdown(
+    """
+    <style>
+    .predict-button-container {
+        padding: 15px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+    }
+    </style>
+    """, 
+    unsafe_allow_html=True
+)
 
 # Fetch available models from backend
 @st.cache_data
@@ -29,7 +66,7 @@ left_column, right_column = st.columns(2)
 
 # Right Column: Predict button, Model Selection, and Top K slider
 with right_column:
-    button_column, model_column, top_k_column = st.columns([1, 1, 1])  # Adjust the width ratio as needed
+    button_column , model_column, top_k_column = st.columns([1,3,3])  # Adjust the width ratio as needed
 
     # Top K Slider in the first part of the row
     with top_k_column:
@@ -41,7 +78,9 @@ with right_column:
 
     # Center the Predict Button
     with button_column:
+        st.markdown("<div class='predict-button-container'>", unsafe_allow_html=True)
         predict_button = st.button("Predict", key="predict_button", type="primary")
+        st.markdown("</div>", unsafe_allow_html=True)
 
 # Left Column: Image upload and other options
 with left_column:
@@ -53,7 +92,6 @@ with left_column:
         image = Image.open(uploaded_file)
         st.image(image, caption='Uploaded Image.', use_container_width=True)
 
-
 # Handle Predictions
 if predict_button:  # Check if the button is clicked
     if uploaded_file is not None:
@@ -62,7 +100,7 @@ if predict_button:  # Check if the button is clicked
         image.save(buffered, format="JPEG")
         img_bytes = buffered.getvalue()
 
-        # Prepare multipart/form-data
+        # Prepare multipart/form/data
         files = {
             "image": ("image.jpg", img_bytes, "image/jpeg"),
         }

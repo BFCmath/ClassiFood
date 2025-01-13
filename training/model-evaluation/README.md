@@ -42,9 +42,9 @@ P/S: Thanks to Saber (aka Mai Duc Minh Huy) for the idea of confidence-weighted 
 
 ## Forward Selection Ensemble
 
-Version: EffNet v4, ResNet v3
-Weight: 1.0, 0.44444444
-Results:
+Version: EffNet v4, ResNet v3  
+Weight: 1.0, 0.44444444  
+Results:  
 
 - Val: 0.8587
 - Test: 0.9160396

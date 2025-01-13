@@ -27,7 +27,7 @@ The `BaseModel` class in `base_model.py` defines the interface that all models m
 
 ### Models
 
-Each model implementation (e.g., ResNet50, InceptionV3) resides in its own directory under `app/models/`. These implementations inherit from the `BaseModel` class and provide specific methods for loading the model, preprocessing images, and performing predictions.
+Each model implementation (e.g., ResNet50, EfficientNet) resides in its own directory under `app/models/`. These implementations inherit from the `BaseModel` class and provide specific methods for loading the model, preprocessing images, and performing predictions.
 
 ### FastAPI Endpoints
 

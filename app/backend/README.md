@@ -45,6 +45,33 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 
 This will start the FastAPI application on port 8000.
 
+## Setting Up Model Weights
+
+1. **Install Kaggle**:
+
+   ```bash
+   pip install kaggle
+   ```
+
+2. **Download the weights**:
+
+   ```bash
+   kaggle datasets download -d phandai/classifoodweight
+   ```
+
+3. **Unzip the downloaded file**:
+
+   ```bash
+   unzip classifoodweight.zip
+   ```
+
+4. **Move the weights to the correct directories**:
+
+   ```bash
+   mv efficientnet.pth app/models/efficientnet/weight.pth
+   mv resnet.pth app/models/resnet50/weight.pth
+   ```
+
 ## Example Usage
 
 1. **Get Available Models**:

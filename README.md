@@ -101,3 +101,8 @@ To run the app using Docker, follow these steps:
    ```
 
 This will start both the backend and frontend services. The backend will be accessible at `http://localhost:8000` and the frontend at `http://localhost:8501`.
+
+## Special Thanks
+
+- Thanks to Saber (aka Mai Duc Minh Huy) for the idea of confidence-weighted prediction.
+- Thanks to ktranowl (aka Khoa Tran) and Nho (aka Dinh Nho Hoang) for helping me with Docker.

@@ -29,8 +29,6 @@ The validation accuracy is the same. For each fold model, I used TTA8 to predict
 
 NOTE: The 6th version of ResNet is the same as the 5th version, but I used Mixup and Cutmix data augmentation techniques.
 
-P/S: Thanks to Saber (aka Mai Duc Minh Huy) for the idea of confidence-weighted prediction.
-
 ## EfficientNet
 
 | Version     | Val          | Test Fold 1 | Test Fold 2 | Test Fold 3 | Test Fold 4 | Test Fold 5 | Test CFW   |

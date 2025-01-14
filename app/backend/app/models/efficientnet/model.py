@@ -8,16 +8,16 @@ import numpy as np
 import torch
 import torchvision.transforms as T
 
-class ResNet50(BaseModel):
+class EfficientNet(BaseModel):
     def __init__(self, model_id_name, name, weight_path, num_classes):
         super().__init__(
             model_id_name=model_id_name,
             name=name,
             weight_path=weight_path,
-            num_classes=num_classes
+            num_classes=num_classes 
         )
-        self.resized_height = 224
-        self.resized_width = 224
+        self.resized_height = 380
+        self.resized_width = 380
         self.transforms = self.get_transforms()
         self.tta_transforms = self.get_tta_transforms()
 

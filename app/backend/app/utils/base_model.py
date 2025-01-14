@@ -4,8 +4,8 @@ class BaseModel(ABC):
         self.model_id_name = model_id_name
         self.name = name
         self.weight_path = weight_path
-        self.model = self.load_model()
         self.num_classes = num_classes
+        self.model = self.load_model()
 
     @abstractmethod
     def load_model(self):
@@ -18,6 +18,6 @@ class BaseModel(ABC):
         pass
 
     @abstractmethod
-    def predict(self, preprocessed_image):
+    def predict(self, preprocessed_image, tta=False):
         """Perform inference on the preprocessed image and return predictions."""
         pass

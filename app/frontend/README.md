@@ -9,13 +9,25 @@ The frontend is built using Streamlit and allows users to upload images, select 
 - Top K predictions
 - Boosting predictions option (trade-off between speed and accuracy)
 
-## Running the Frontend
+## Running the Frontend Locally
 
-To run the frontend, use the following command:
+To run the frontend locally, use the following command:
 
 ```bash
 streamlit run app.py
 ```
+
+## Running the Frontend with Docker
+
+To run the frontend using Docker, follow these steps:
+
+1. **Build and run the container**:
+
+   ```bash
+   docker-compose up --build frontend
+   ```
+
+This will start the frontend service and it will be accessible at `http://localhost:8501`.
 
 ## Example Usage
 

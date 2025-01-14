@@ -54,11 +54,11 @@ For detailed information on model evaluation, refer to the [Evaluation README](t
 The application consists of a backend built with FastAPI and a frontend built with Streamlit. The backend handles image classification tasks using various pre-trained models, while the frontend allows users to upload images, select models, and get predictions.
 
 For detailed information on the backend, refer to the [Backend README](app/backend/README.md).
-For detailed information on the backend, refer to the [Frontend README](app/frontend/README.md).
+For detailed information on the frontend, refer to the [Frontend README](app/frontend/README.md).
 
-### Running the App
+### Running the App Locally
 
-To run the backend, use the following command:
+To run the backend locally, use the following command:
 
 ```bash
 cd app/backend
@@ -66,7 +66,7 @@ pip install -r requirements.txt
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
-To run the frontend, use the following command:
+To run the frontend locally, use the following command:
 
 ```bash
 cd app/frontend
@@ -74,72 +74,14 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-<!-- ### Docker Deployment
+### Running the App with Docker
 
-To make it easier for others to run the app, you can use Docker. Follow these steps:
+To run the app using Docker, follow these steps:
 
-1. **Create a Dockerfile for the backend**:
+1. **Build and run the containers**:
 
-```dockerfile
-// filepath: /d:/Project/ProjectBasedLearning/ComputerVision/ImageClassification/ClassiFood/app/backend/Dockerfile
-FROM python:3.9-slim
+   ```bash
+   docker-compose up --build
+   ```
 
-WORKDIR /app
-
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
-```
-
-2. **Create a Dockerfile for the frontend**:
-
-```dockerfile
-// filepath: /d:/Project/ProjectBasedLearning/ComputerVision/ImageClassification/ClassiFood/app/frontend/Dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-CMD ["streamlit", "run", "app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
-```
-
-3. **Create a `docker-compose.yml` file**:
-
-```yaml
-// filepath: /d:/Project/ProjectBasedLearning/ComputerVision/ImageClassification/ClassiFood/docker-compose.yml
-version: '3.8'
-
-services:
-  backend:
-    build:
-      context: ./app/backend
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./app/backend:/app
-
-  frontend:
-    build:
-      context: ./app/frontend
-    ports:
-      - "8501:8501"
-    volumes:
-      - ./app/frontend:/app
-    depends_on:
-      - backend
-```
-
-4. **Build and run the containers**:
-
-```bash
-docker-compose up --build
-```
-
-This will start both the backend and frontend services. The backend will be accessible at `http://localhost:8000` and the frontend at `http://localhost:8501`. -->
+This will start both the backend and frontend services. The backend will be accessible at `http://localhost:8000` and the frontend at `http://localhost:8501`.

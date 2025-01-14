@@ -35,15 +35,27 @@ Each model implementation (e.g., ResNet50, EfficientNet) resides in its own dire
 - `GET /classes`: Returns the class names used by the models.
 - `POST /predict`: Accepts an image and a model ID, preprocesses the image, performs prediction, and returns the results.
 
-## Running the Backend
+## Running the Backend Locally
 
-To run the backend, use the following command:
+To run the backend locally, use the following command:
 
 ```bash
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
 This will start the FastAPI application on port 8000.
+
+## Running the Backend with Docker
+
+To run the backend using Docker, follow these steps:
+
+1. **Build and run the container**:
+
+   ```bash
+   docker-compose up --build backend
+   ```
+
+This will start the backend service and it will be accessible at `http://localhost:8000`.
 
 ## Setting Up Model Weights
 

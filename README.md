@@ -25,7 +25,7 @@ You can also check other datasets in the [Source of Datasets](training/data-prep
 
 ## Exploratory Data Analysis (EDA)
 
-The EDA for this project is in the [EDA notebook](training/data-preparation/EDA.ipynb) file.
+The EDA for this project is in the [EDA notebook](training/data-analysis/eda-food101.ipynb) file.
 
 **TL;DR**:
 
@@ -47,7 +47,7 @@ You can check the inference pipeline in the [inference script](training/model-ev
 
 ## Model Evaluation
 
-For detailed information on model evaluation, refer to the [Evaluation README](training/model-evaluation/README.md).
+For detailed information on final results, refer to the [Evaluation README](training/model-evaluation/README.md).
 
 ## App
 

@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 from PIL import Image
 import io
+import os
 
 # Set page configuration
 st.set_page_config(layout="wide")
@@ -33,8 +34,11 @@ st.markdown(
 st.title("Food Image Classification App")
 tta = st.checkbox("Slower but more accurate", value=False)
 
-# Backend API URL
-API_URL = "http://localhost:8000"
+# Determine the API URL based on the environment
+if os.getenv("DOCKER_ENV") == "true":
+    API_URL = "http://backend:8000"
+else:
+    API_URL = "http://localhost:8000"
 
 # Inject custom CSS for the button
 st.markdown(

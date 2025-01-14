@@ -6,16 +6,12 @@ services:
       context: ./app/backend
     ports:
       - "8000:8000"
-    # volumes:
-    #   - ./app/backend:/app
 
   frontend:
     build:
       context: ./app/frontend
     ports:
       - "8501:8501"
-    volumes:
-      - ./app/frontend:/app
     depends_on:
       - backend
     environment:

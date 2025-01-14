@@ -12,10 +12,6 @@ RUN apt-get update && apt-get install -y \
 # Install the Kaggle CLI
 RUN pip install kaggle --no-cache-dir
 
-# Copy the script and set permissions
-COPY download_weights.sh download_weights.sh
-RUN chmod +x download_weights.sh
-
 # Copy the weight download script into the container
 COPY download_weights.sh /app/download_weights.sh
 
@@ -36,6 +32,4 @@ COPY . .
 EXPOSE 8000
 
 # Run the application
-# ENTRYPOINT ["/bin/bash"]
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
-

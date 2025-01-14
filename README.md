@@ -78,7 +78,23 @@ streamlit run app.py
 
 To run the app using Docker, follow these steps:
 
-1. **Build and run the containers**:
+1. **Pull the Docker images**:
+
+   ```bash
+   docker pull bfcmath/classifood-backend:1.0
+   docker pull bfcmath/classifood-frontend:1.0
+   ```
+
+2. **Run the containers**:
+
+   ```bash
+   docker run --name backend --network app-network -p 8000:8000 bfcmath/classifood-backend:1.0
+   docker run --name frontend --network app-network -p 8501:8501 -e DOCKER_ENV=true bfcmath/classifood-frontend:1.0
+   ```
+
+3. **Build and run the containers (Optional)**:
+
+   If you want to build the images locally, you can use the following command:
 
    ```bash
    docker-compose up --build

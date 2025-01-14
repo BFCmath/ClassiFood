@@ -49,7 +49,21 @@ This will start the FastAPI application on port 8000.
 
 To run the backend using Docker, follow these steps:
 
-1. **Build and run the container**:
+1. **Pull the Docker image**:
+
+   ```bash
+   docker pull bfcmath/classifood-backend:1.0
+   ```
+
+2. **Run the container**:
+
+   ```bash
+   docker run --name backend --network app-network -p 8000:8000 bfcmath/classifood-backend:1.0
+   ```
+
+3. **Build and run the container (Optional)**:
+
+   If you want to build the image locally, you can use the following command:
 
    ```bash
    docker-compose up --build backend

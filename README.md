@@ -14,8 +14,8 @@ End-to-end project for simple classification food project
 - [X] Web app
   - [X] Setup streamlit
   - [X] Setup FastAPI
-- [ ] Deployment
-  - [ ] Docker
+- [X] Deployment
+  - [X] Docker
 
 ## Dataset
 
@@ -73,3 +73,73 @@ cd app/frontend
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+<!-- ### Docker Deployment
+
+To make it easier for others to run the app, you can use Docker. Follow these steps:
+
+1. **Create a Dockerfile for the backend**:
+
+```dockerfile
+// filepath: /d:/Project/ProjectBasedLearning/ComputerVision/ImageClassification/ClassiFood/app/backend/Dockerfile
+FROM python:3.9-slim
+
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+2. **Create a Dockerfile for the frontend**:
+
+```dockerfile
+// filepath: /d:/Project/ProjectBasedLearning/ComputerVision/ImageClassification/ClassiFood/app/frontend/Dockerfile
+FROM python:3.9-slim
+
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["streamlit", "run", "app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+```
+
+3. **Create a `docker-compose.yml` file**:
+
+```yaml
+// filepath: /d:/Project/ProjectBasedLearning/ComputerVision/ImageClassification/ClassiFood/docker-compose.yml
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./app/backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app/backend:/app
+
+  frontend:
+    build:
+      context: ./app/frontend
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./app/frontend:/app
+    depends_on:
+      - backend
+```
+
+4. **Build and run the containers**:
+
+```bash
+docker-compose up --build
+```
+
+This will start both the backend and frontend services. The backend will be accessible at `http://localhost:8000` and the frontend at `http://localhost:8501`. -->
